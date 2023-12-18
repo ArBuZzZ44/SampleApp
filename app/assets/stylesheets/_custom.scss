@@ -148,7 +148,7 @@ aside {
 
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
-  width: 100%;
+  width: 50%;
 	margin: auto;
   margin-bottom: 15px;
   @include box_sizing;
@@ -159,10 +159,10 @@ input, textarea, select, .uneditable-input {
   justify-content: center;
 }
 
-input {
-  height: auto !important;
-}
+// input {
+//   height: auto !important;
+// }
 
 label, .label {
-	font-weight:500 
+	font-weight:500;
 }

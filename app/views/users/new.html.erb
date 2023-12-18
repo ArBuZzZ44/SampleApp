@@ -2,21 +2,21 @@
 <h1 class="mt-4">Sign up</h1>
 
 <div class="form-center row">
-	<div class="col-md-6">
+	<div class="col-md-5">
 		<%= form_with model: @user do |f| %>
 			<%= f.label :name %>
-			<%= f.text_field :name %>
+			<%= f.text_field :name, class: "form-control" %>
 
 			<%= f.label :email %>
-			<%= f.email_field :email %>
+			<%= f.email_field :email, class: "form-control" %>
 
 			<%= f.label :password %>
-			<%= f.password_field :password %>
-
+			<%= f.password_field :password, class: "form-control" %>
+			
 			<%= f.label :password_confirmation, "Confirmation" %>
-			<%= f.password_field :password_confirmation %>
+			<%= f.password_field :password_confirmation, class: "form-control" %>
 
-			<%= f.submit "Create my account", class: "btn btn-primary" %>
+			<%= f.submit "Create my account", class: "btn rounded-5 btn-primary form-center", style: "width:30%; height: 50px" %>
 		<% end %>
 	</div>
 </div>
