@@ -4,15 +4,22 @@ module SessionsHelper
 		session[:user_id] = user.id
 	end
 
+	def log_out
+		forget(current_user)
+		session.delete(:user_id)
+		@current_user = nil
+	end
+
 	def remember(user)
     user.remember_me
     cookies.encrypted.permanent[:remember_token] = user.remember_token
 		cookies.encrypted.permanent[:user_id] = user.id
   end
 
-	def log_out
-		session.delete(:user_id)
-		@current_user = nil
+	def forget(user)
+		user.forget_me
+		cookies.delete(:user_id)
+		cookies.delete(:remember_token)
 	end
 
 	def current_user
