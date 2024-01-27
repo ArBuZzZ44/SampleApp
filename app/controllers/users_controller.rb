@@ -19,11 +19,12 @@ class UsersController < ApplicationController
   end
 
 	def index
-		@pagy, @users = pagy User.all
+		@pagy, @users = pagy User.where(activated: true).all
 	end
 
 	def show 
 		@user = User.find(params[:id])
+		redirect_to root_path and return unless @user.activated?
 	end
 
 	def edit
