@@ -1,4 +1,16 @@
 <% provide(:title, "Home") %>
+<% if logged_in? %>
+  <div class="row">
+    <aside class="col-md-4">
+      <section class="user_info">
+        <%= render 'shared/user_info' %>
+      </section>
+      <section class="micropost_form">
+        <%= render 'shared/micropost_form' %>
+      </section>
+    </aside>
+  </div>
+<% else %>
 <div class="jumbotron bg-body-secondary p-5 mb-4 rounded-3 mt-4">
   <h1>Welcome to the Sample App</h1>
 
@@ -6,10 +18,9 @@
     This is the home page for the sample application.
   </h2>
 
-	<% if current_user.nil? %>
   	<%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
-	<% end %>
 </div>
 
 <%= link_to image_tag("rails.png", alt: "Rails logo"),
             'http://rubyonrails.org/' %>
+<% end %>
